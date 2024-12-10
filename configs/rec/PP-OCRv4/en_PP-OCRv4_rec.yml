@@ -1,11 +1,11 @@
 Global:
   debug: false
   use_gpu: true
-  epoch_num: 50
+  epoch_num: 5
   log_smooth_window: 20
   print_batch_step: 10
   save_model_dir: ./output/rec_ppocr_v4
-  save_epoch_step: 10
+  save_epoch_step: 1
   eval_batch_step:
   - 0
   - 2000
@@ -72,10 +72,10 @@ Train:
   dataset:
     name: MultiScaleDataSet
     ds_width: false
-    data_dir: ./train_data/
+    data_dir: ./dataset/train
     ext_op_transform_idx: 1
     label_file_list:
-    - ./train_data/train_list.txt
+    - ./dataset/train.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
@@ -121,9 +121,9 @@ Train:
 Eval:
   dataset:
     name: SimpleDataSet
-    data_dir: ./train_data
+    data_dir: ./dataset/val
     label_file_list:
-    - ./train_data/val_list.txt
+    - ./dataset/val.txt
     transforms:
     - DecodeImage:
         img_mode: BGR
